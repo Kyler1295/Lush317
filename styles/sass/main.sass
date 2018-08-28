@@ -1,0 +1,320 @@
+// Variables
+$headerColor: #431c33
+$contentColor: #c7b27b
+$purple: #431c33
+$tan:  #c7b27b
+
+// Bulma Reset
+.button.is-primary
+    background-color: $tan
+.button.is-primary:hover
+    background-color: $tan
+
+// Mixins
+@mixin transition($args) 
+    -webkit-transition: $args
+    -moz-transition: $args
+    -ms-transition: $args
+    -o-transition: $args
+    transition: $args
+
+
+// Imports
+
+// Base Styles
+html
+    font-size: 24px
+    background-color: #eee
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 
+    color: $headerColor
+    font-family: 'Niconne', cursive
+    
+p,
+span
+    color: $contentColor
+    font-family: 'Libre Franklin', sans-serif
+
+h1
+    font-size: 3rem
+h2
+    font-size: 2.5rem
+h3
+    font-size: 2.25rem
+h4
+    font-size: 2rem
+h5
+    font-size: 1.75rem
+h6
+    font-size: 1.5rem
+
+ul
+    li
+        font-family: 'Libre Franklin', sans-serif
+        color: $purple
+    li::before
+        content: "\02704"
+        color: $purple
+        margin-right: 1%
+
+hr 
+    overflow: visible /* For IE */
+    padding: 0
+    border: none
+    border-top: medium double #333
+    color: #333
+    text-align: center
+    width: 80%
+    margin: auto
+
+hr:after 
+    content: "\02704"
+    display: inline-block
+    position: relative
+    top: -0.8em
+    font-size: 1.5em
+    padding: 0 0.25em
+    background: #eee
+
+
+// Global Styles
+main 
+    min-height: 100vh
+    width: 100vw
+.title
+    width: 100%
+    text-align: center
+    text-decoration: underline
+    text-decoration-color: $purple
+    padding: 5% 0 0 0
+
+// Bulma
+.navbar-item img 
+    max-height: 100%
+
+
+// Main Page
+.homePage 
+    // Hero Section
+    .hero 
+        background-image: url('../../assets/hero.jpg')
+        width: 100%
+        height: 100vh
+        background-size: cover
+        background-position: center top
+    .landingCallout
+        display: flex
+        justify-content: flex-start
+        align-items: flex-start
+        flex-direction: column
+        width: 20%
+        height: 80%
+        margin: 7% 0 0 10%
+
+// Snippets CSS
+.snippets
+    min-height: 40vh
+    width: 80vw
+    margin: 0 0 0 10vw
+
+    .column
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        flex-direction: column
+        margin: 5% 0 0 0
+        h3
+            border-bottom: 3px solid $purple
+        p
+            text-align: center
+            margin: 5% 0 0 0
+
+// About CSS
+.about
+    min-height: 100vh
+    width: 100vw
+    background-color: $purple
+    .title 
+        color: $tan
+        text-decoration-color: $tan
+    .columns
+        .column
+            padding: 4rem
+            p
+                position: relative
+                padding: 5%
+                margin: 0 0 5% 0
+            p::before
+                content: ''
+                position: absolute
+                width: 50%
+                height: 50%
+                top: 0
+                left: 0
+                border-top: 3px solid $tan
+                border-left: 3px solid $tan
+            p::after
+                content: ''
+                position: absolute
+                width: 50%
+                height: 50%
+                bottom: 0
+                right: 0
+                border-bottom: 3px solid $tan
+                border-right: 3px solid $tan
+
+// Services
+.services
+    width: 100vw
+    min-height: 100vh
+    .columns
+        .column.service-box
+            align-items: center
+            justify-content: center
+            flex-direction: column
+            .service-title
+                text-align: center
+                height: 350px
+                color: $tan
+                background-color: $purple
+                margin: 0 10% 0 10%
+                display: flex
+                justify-content: center
+                align-items: center
+                cursor: pointer
+                position: relative
+            .service-title::before
+                content: ''
+                position: absolute
+                top: 0
+                left: 0
+                width: 0%
+                height: 0%
+                border-top: 0px solid $tan
+                border-left: 0px solid $tan
+                @include transition(all .5s)
+            .service-title:hover::before
+                width: 100%
+                height: 100%        
+                border-top: 4px solid $tan
+                border-left: 4px solid $tan
+            .service-title::after
+                content: ''
+                position: absolute
+                bottom: 0
+                right: 0
+                width: 0%
+                height: 0%
+                border-bottom: 0px solid $tan
+                border-right: 0px solid $tan
+                @include transition(all .5s)
+            .service-title:hover::after
+                width: 100%
+                height: 100%        
+                border-bottom: 4px solid $tan
+                border-right: 4px solid $tan
+            .service-text
+                display: none
+                width: 60%
+        .full-view 
+            .service-title
+                width: 60%
+                margin: 0 !important
+
+// Our Team Section
+.our-team
+    width: 100vw
+    min-height: 100vh
+    .our-team-right
+        width: 80%
+        margin-left: auto
+        background-color: $tan
+        outline: 3px solid $purple
+        outline-offset: 15px
+        margin-bottom: 100px
+        min-height: 20vh
+        display: flex
+        justify-content: flex-start
+        align-items: center
+    .our-team-left
+        width: 80%
+        margin-right: auto
+        background-color: $tan
+        outline: 3px solid $purple
+        outline-offset: 15px
+        margin-bottom: 100px
+        min-height: 20vh
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        flex-direction: row-reverse
+        .staff-desc
+            margin-left: 3%
+            p
+                width: 90%
+    .staff-picture
+        padding: 3%
+    .staff-desc
+        h5
+            text-decoration: underline
+            text-decoration-color: $purple
+        p
+            color: $purple
+            width: 80%
+    .staff-position
+        font-size: 1.25rem
+
+// Specials
+.specials
+    width: 100vw
+    min-height: 70vh
+    background-color: $purple
+    padding-bottom: 10%
+    h2
+        color: $tan
+        text-decoration-color: $tan
+    .specials-info
+        width: 60%
+        border-radius: 15px
+        margin: auto
+        min-height: 50vh
+        background-color: $tan
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        flex-direction: column
+        padding-top: 5%
+        h5
+            position: relative
+        h5::before
+            content: ''
+            position: absolute
+            top: 50%
+            left: -70%
+            border-top: 3px double $purple
+            width: 60%
+            height: 0vh
+        h5::after
+            content: ''
+            position: absolute
+            top: 50%
+            right: -70%
+            border-top: 3px double $purple
+            width: 60%
+            height: 0vh
+    
+// Contact Styles
+.contact
+    width: 100vw
+    min-height: 100vh
+
+
+// Footer Styles
+footer
+    min-height: 40vh
+    width: 100vw
+    background-color: #333333
